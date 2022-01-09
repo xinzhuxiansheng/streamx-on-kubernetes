@@ -85,7 +85,9 @@ hostAliases:
 ```
 
 2. 创建namespace
-namespace: yzhou  
+```yaml
+namespace: yzhou
+```  
 
 
 ```yaml
