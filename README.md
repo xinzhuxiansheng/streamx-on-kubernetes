@@ -20,7 +20,7 @@ docker build --no-cache -t="streamxcentos:v0.0.1" .
 
 
 ### streamx
-streamx服务，包含(k8s config,flink安装包,streamx安装包)
+streamx服务，包含(k8s config,flink安装包,streamx安装包), streamx镜像是基于centos7.9镜像，所以需要适时修改 `FROM streamxcentos:v0.0.1`
 
 ```shell
 # 打包streamx服务镜像
