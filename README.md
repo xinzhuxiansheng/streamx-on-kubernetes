@@ -31,7 +31,7 @@ docker build --no-cache -t="streamxapp:v0.0.1" .
 ```
 
 
-**streamx涉及到修改**
+**streamx涉及到修改**    
 1.修改streamx.sh脚本，将日志通过Kubernetes STUDOUT输出日志，streamx利用Docker Daemon保证streamx后台运行
 ```shell
 # ......省略上文
