@@ -71,7 +71,7 @@ docker exec -it [containerId] /bin/bash
 ```
 
 ## K8s验证  
-以下是streamx.yaml相关内容介绍   
+以下是streamx.yaml、ingress.yaml相关内容介绍   
 
 1. 增加hosts
 ```yaml
@@ -155,4 +155,26 @@ spec:
     targetPort: 10000
   selector:
     app: streamxservice
+```
+
+创建ingress   
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: traefik
+  labels:
+    app: streamxservice-svc
+  name: streamxservice-svc
+  namespace: yzhou
+spec:
+  rules:
+  - host: streamxservice-svc.xxxxxxxx.com
+    http:
+      paths:
+      - backend:
+          serviceName: streamxservice-svc
+          servicePort: 10000
+        path: /
 ```
