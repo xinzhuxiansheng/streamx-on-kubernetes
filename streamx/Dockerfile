@@ -7,7 +7,7 @@ ADD ./streamx-console-service-1.2.1 /usr/local/streamx-console-service-1.2.1
 
 # 测试环境k8s
 RUN mkdir /root/.kube
-COPY ./config_k8sprod /root/.kube/config
+COPY ./config /root/.kube/config
 
 # 配置workspace
 RUN mkdir /usr/local/streamx_workspace
