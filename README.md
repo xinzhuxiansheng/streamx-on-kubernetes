@@ -70,9 +70,10 @@ docker run -dit -p 10005:10000 -v /var/run/docker.sock:/var/run/docker.sock -v /
 docker exec -it [containerId] /bin/bash
 ```
 
-## K8s yaml
+## K8s streamx.yaml
 
 1. 增加hosts
+```yaml
 hostAliases:
   - ip: "10.xxx.xxx.xxx"
     hostnames:
@@ -80,6 +81,7 @@ hostAliases:
   - ip: "10.xxx.xxx.xx"
     hostnames:
     - "apiserver.xxxx.k8s.xxxx.com"
+```
 
 2. 创建namespace
 namespace: yzhou
