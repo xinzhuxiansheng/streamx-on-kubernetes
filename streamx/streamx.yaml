@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: streamxservice
+  namespace: yzhou
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: streamxservice
+  template:
+    metadata:
+      name: streamxservice
+      labels:
+        app: streamxservice
+    spec:
+      containers:
+        - name: streamxservice
+          image: hub.xxxx.com/streamx/streamxapp:vt0.0.1
+          volumeMounts:
+          - mountPath: /var/run/docker.sock
+            name: docker-sock
+          - mountPath: /usr/local/streamx_workspace
+            name: streamxworkspace
+          resources:
+            limits:
+              memory: 4096Mi
+              cpu: 4
+            requests:
+              memory: 4096Mi
+              cpu: 4
+      volumes:
+        - name: timezone
+          hostPath:
+            path: /usr/share/zoneinfo/Asia/Shanghai
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock
+            type: Socket
+        - name: streamxworkspace
+          hostPath:
+            path: /data/streamx_workspace
+            type: DirectoryOrCreate
+      hostAliases:
+        - ip: "10.168.4.192"
+          hostnames:
+          - "yzhou.mysql.com"
+        - ip: "10.24.82.2"
+          hostnames:
+          - "apiserver.pbs-libra.k8s.xxxx.com"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: streamxservice-svc
+  namespace: yzhou
+spec:
+  type: ClusterIP
+  ports:
+  - port: 10000
+    targetPort: 10000
+  selector:
+    app: streamxservice
