@@ -51,8 +51,8 @@ eval "\"$RUNJAVA\"" $JAVA_OPTS \
 
 
 ## Docker环境验证
-利用docker in docker方式
-**参数介绍**
+利用docker in docker方式    
+**参数介绍**    
 ```shell
 #  docker in docker
 1. -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker
@@ -70,7 +70,8 @@ docker run -dit -p 10005:10000 -v /var/run/docker.sock:/var/run/docker.sock -v /
 docker exec -it [containerId] /bin/bash
 ```
 
-## K8s streamx.yaml
+## K8s验证  
+以下是streamx.yaml相关内容介绍   
 
 1. 增加hosts
 ```yaml
@@ -84,7 +85,7 @@ hostAliases:
 ```
 
 2. 创建namespace
-namespace: yzhou
+namespace: yzhou  
 
 
 ```yaml
