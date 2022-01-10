@@ -70,7 +70,7 @@ docker run -dit -p 10005:10000 -v /var/run/docker.sock:/var/run/docker.sock -v /
 docker exec -it [containerId] /bin/bash
 ```
 
-## K8s验证  
+## K8s环境验证  
 以下是streamx.yaml、ingress.yaml相关内容介绍   
 
 1. 增加hosts
