@@ -2,7 +2,7 @@
 
 ## StreamX on Kubernetes
 
->本仓库相关依赖及安装包采用本地ADD方式build镜像, 方式*.tar.gz、flnk、streamx安装包过大，没有上传以上安装包，仅仅利用touch方式标识安装包，请clone后，自行替换安装包
+>本仓库相关依赖及安装包采用本地ADD方式build镜像, 由于*.tar.gz、flnk、streamx安装包过大，没有上传以上安装包，仅仅利用touch方式标识安装包，请clone后，自行替换安装包
 
 ## 镜像介绍
 
